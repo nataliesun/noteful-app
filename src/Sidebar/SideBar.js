@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Folder from '../Folder/Folder';
 import './SideBar.css'
 
 class SideBar extends Component {
     static defaultProps = {
-        folders: []
+        folders: [],
+        folderName: ''
     }
 
     render() {
@@ -15,10 +17,12 @@ class SideBar extends Component {
             <div className="SideBar">
                 SideBar
                 {folders}
-                <button type="button">Add folder</button>
+                {!!folders.length && <button type="button">Add folder</button>}
+                {!folders.length && <button type="button" onClick={this.props.history.goBack}>Go back</button>}
+                {!!this.props.folderName && <div>{this.props.folderName}</div>}
             </div>
         );
     }
 }
 
-export default SideBar;
+export default withRouter(SideBar);

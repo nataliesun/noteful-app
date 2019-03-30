@@ -8,9 +8,12 @@ class NotePage extends Component {
         const singleNote = this.props.data.notes.find(
             note => note.id === this.props.rProps)
             
+        const folderName = this.props.data.folders.find(folder => folder.id === singleNote.folderId).name
+
+        console.log(folderName)
         return (
             <div>
-                <SideBar />
+                <SideBar folderName={folderName}/>
                 <Note {...singleNote} />
                 <p>{singleNote.content}</p>
             </div>
