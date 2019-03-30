@@ -9,7 +9,8 @@ class SideBar extends Component {
 
     render() {
 
-        const folders = this.props.folders.map(folder => <Folder key={folder.id} name={folder.name}/>)
+        const folders = this.props.folders.map(folder => <Folder key={folder.id} name={folder.name} folderId={folder.id} />)
+        
         return (
             <div className="SideBar">
                 SideBar

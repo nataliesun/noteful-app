@@ -37,3 +37,7 @@
   display: flex;
 
 }
+
+.active-folder {
+  color: red
+}

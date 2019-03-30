@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Folder extends Component {
     render() {
         return (
-            <Link to='/folder'>
+            <NavLink activeClassName="active-folder" to={`/folder/${this.props.folderId}`}>
                 <div className="Folder">
                     {this.props.name}
                 </div>
-            </Link>
+            </NavLink>
         );
     }
 }

@@ -3,6 +3,10 @@ import Note from '../Note/Note';
 import './NoteList.css'
 
 class NoteList extends Component {
+    static defaultProps = {
+        notes: []
+    }
+    
     render() {
         const notes = this.props.notes.map(note => <Note key={note.id} {...note} />)
         return (

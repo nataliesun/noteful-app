@@ -8,6 +8,7 @@ import dummyStore from './dummy-store';
 
 import FolderPage from './FolderPage/FolderPage';
 import MainPage from './MainPage/MainPage';
+import NotePage from './NotePage/NotePage'
 
 
 class App extends Component {
@@ -23,7 +24,20 @@ class App extends Component {
         </header>
         <main>
           <Route exact path='/' render={() => <MainPage data={this.state} />} />
-          <Route path='/folder' component={FolderPage} />
+
+          <Route path='/folder/:folderId' render={(routerProps) => {
+            return <FolderPage rProps={routerProps.match.params.folderId} data={this.state}/>
+          }
+          } />
+
+          <Route path='/note/:noteId' render={
+            (routerProps) => {
+              return <NotePage rProps={
+                routerProps.match.params.noteId} 
+                data={this.state} />
+            }
+          } />
+
         </main>
       </div>
     );
